@@ -1,0 +1,73 @@
+// src/styles/reset.scss
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'IBMPlexSans-Regular';
+    src: url('../assets/fonts/IBMPlexSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBMPlexSans-SemiBold';
+    src: url('../assets/fonts/IBMPlexSans-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBMPlexSans-Thin';
+    src: url('../assets/fonts/IBMPlexSans-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Сброс стилей */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'IBMPlexSans-Regular', sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'IBMPlexSans-SemiBold', sans-serif;
+}
+
+button,
+a {
+    font-family: 'IBMPlexSans-SemiBold', sans-serif;
+}
+
+small,
+.caption {
+    font-family: 'IBMPlexSans-Thin', sans-serif;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}

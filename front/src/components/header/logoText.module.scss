@@ -1,0 +1,49 @@
+// src/components/Logo.module.scss
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+
+    img {
+        height: 40px;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            animation: shake 0.5s ease-in-out; // Анимация потряхивания
+        }
+    }
+
+    .lightText {
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .darkText {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}

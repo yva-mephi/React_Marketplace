@@ -1,0 +1,22 @@
+// src/components/Header.module.scss
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.7); // Светлое матовое стекло для светлого режима
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.searchWrapper {
+    // Отступ после логотипа
+    flex: 1;
+    max-width: 800px;
+}
+
+[data-theme='dark'] .header {
+    background: rgba(0, 0, 0, 0.7); // Темное матовое стекло для темного режима
+}

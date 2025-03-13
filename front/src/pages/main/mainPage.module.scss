@@ -1,0 +1,76 @@
+// src/pages/main/mainPage.module.scss
+@use '../../styles/variables.scss' as vars;
+
+.container {
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
+    color: var(--color-light-text);
+    transition: color 0.3s ease;
+
+    // Градиент для светлой темы
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(115deg, #fff720, #3cd500);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    // Градиент для темной темы
+    &[data-theme='dark'] {
+        color: var(--color-dark-text);
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    // Дополнительный слой для темной темы
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(115deg, #135a2e, #83a002);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+}
+
+.themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin: 10px 0;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+.searchBar {
+    display: flex;
+    align-items: center;
+    width: 600px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5); // Темное матовое стекло для светлого режима
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: width 0.3s ease;
+
+    input {
+        border: none;
+        background: transparent;
+        outline: none;
+        flex: 1;
+        color: white; // Цвет текста для светлого режима
+        font-size: 16px;
+        caret-color: white; // Цвет курсора для светлого режима
+        left: 40px; // Добавляем отступы внутри input
+        width: 100%; // Занимает всю доступную ширину
+        height: 100%;
+        font-family: 'IBMPlexSans-Regular', sans-serif;
+        font-weight: 550;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .searchButton {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        transition: transform 0.2s ease; // Анимация для кнопки
+
+        img {
+            height: 25px;
+            width: 25px;
+            transition: opacity 0.2s ease; // Анимация для иконки
+        }
+
+        &:hover {
+            transform: scale(1.1); // Увеличиваем кнопку при наведении
+        }
+
+        &:active {
+            transform: scale(0.9); // Уменьшаем кнопку при нажатии
+        }
+    }
+
+    &.focused {
+        width: 700px; // Расширяем при фокусе
+    }
+}
+
+[data-theme='dark'] .searchBar {
+    background: rgba(255, 255, 255, 0.7); // Светлое матовое стекло для темного режима
+
+    input {
+        color: black; // Цвет текста для темного режима
+        caret-color: black; // Цвет курсора для темного режима
+
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.7);
+        }
+    }
+}

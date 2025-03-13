@@ -1,0 +1,46 @@
+// $gradient-color-light: linear-gradient(115deg, #fa8bff, #2bd2ff, #2bff88);
+$gradient-color-light: linear-gradient(115deg, #fff720, #3cd500);
+$gradient-color-dark: linear-gradient(115deg, #135a2e, #83a002);
+// $gradient-color-dark: linear-gradient(115deg, #ffa600, #ff6361, #003f5c);
+
+// :root {
+//     --font-regular: 'IBMPlexSans-Regular', sans-serif;
+//     --font-semi-bold: 'IBMPlexSans-SemiBold', sans-serif;
+//     --font-thin: 'IBMPlexSans-Thin', sans-serif;
+
+//     --color-light-bg: #ffffff;
+//     --color-light-text: #000000;
+//     --color-dark-bg: #1a1a1a;
+//     --color-dark-text: #ffffff;
+
+//     --gradient-color-light: linear-gradient(115deg, #047caf, #a8e4ea);
+//     --gradient-color-dark: linear-gradient(115deg, #005ed1, #000000);
+// }
+
+// TT_Interphases_ Pro_Trial_DemiBold_Italic.ttf
+// TT_Interphases_Pro_Trial_DemiBold.ttf
+// TT_Interphases_Pro_Trial_Italic.ttf
+// TT_Interphases_Pro_Trial_Light.ttf
+// TT_Interphases_Pro_Trial_Regular.ttf
+// src/styles/variables.scss
+// :root {
+//     --font-demi-bold-italic: 'TT_Interphases_Pro_Trial_DemiBold_Italic', sans-serif;
+//     --font-demi-bold: 'TT_Interphases_Pro_Trial_DemiBold', sans-serif;
+//     --font-italic: 'TT_Interphases_Pro_Trial_Italic', sans-serif;
+//     --font-light: 'TT_Interphases_Pro_Trial_Light', sans-serif;
+//     --font-regular: 'TT_Interphases_Pro_Trial_Regular', sans-serif;
+
+//     --color-light-bg: #ffffff;
+//     --color-light-text: #000000;
+//     --color-dark-bg: #1a1a1a;
+//     --color-dark-text: #ffffff;
+// }
+
+// [data-theme='dark'] {
+//     --color-light-bg: var(--color-dark-bg);
+//     --color-light-text: var(--color-dark-text);
+// }
+
+// IBMPlexSans-Regular.ttf - для обычного текста во всех элементах
+// IBMPlexSans-SemiBold.ttf - для жирного текста будем использовать в кнопках и названиях
+// IBMPlexSans-Thin.ttf - легкий текст будем использовать для маленьких надписей и подсказок

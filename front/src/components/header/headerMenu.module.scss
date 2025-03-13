@@ -1,0 +1,46 @@
+// src/components/headerMenu.module.scss
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 10px;
+
+    .iconWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        height: 40px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+
+    .notificationBadge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        background: red;
+        border-radius: 50%;
+    }
+
+    .accountWrapper {
+        position: relative;
+    }
+
+    .toggle {
+        display: flex;
+        align-items: center;
+    }
+}
