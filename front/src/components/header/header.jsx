@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import styles from './header.module.scss';

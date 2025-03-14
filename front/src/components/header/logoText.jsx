@@ -1,9 +1,8 @@
 import React from 'react';
 import { useAppSelector } from '../../store/hooks';
-import { useNavigate } from 'react-router-dom'; // Добавляем useNavigate
+import { useNavigate } from 'react-router-dom';
 import styles from './logoText.module.scss';
 
-// Импортируем логотип
 import logo from '../../assets/logo.svg';
 
 const Logo = () => {

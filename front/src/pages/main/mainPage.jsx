@@ -1,4 +1,3 @@
-// src/pages/main/mainPage.jsx
 import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import Header from '../../components/header/header';

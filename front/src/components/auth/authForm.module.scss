@@ -1,0 +1,117 @@
+.authContainer {
+    width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #0000004b;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4); // Светлое матовое стекло для светлого режима
+    backdrop-filter: blur(5px);
+}
+
+.authToggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.names {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    p {
+        margin: 0;
+        font-weight: bold;
+        color: #333;
+        transition: color 0.3s ease;
+        flex: 1;
+        text-align: center;
+
+        &.active {
+            color: #ff3c00;
+        }
+    }
+}
+
+.toggle {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: calc(50% - 10px);
+    height: 80%;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.authSwitch {
+    display: none;
+
+    &:checked+.authToggle .toggle {
+        transform: translateX(100%) translateY(-50%);
+    }
+
+    &:checked+.authToggle .names p:first-child {
+        color: #333;
+    }
+
+    &:checked+.authToggle .names p:last-child {
+        color: #ff3c00;
+    }
+}
+
+.authForm {
+    .formGroup {
+        margin-bottom: 15px;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(115deg, #ff3c00, #f2ff00);
+        ;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+            background: linear-gradient(115deg, #962300, #9ba301);
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+    }
+}

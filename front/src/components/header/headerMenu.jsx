@@ -1,9 +1,8 @@
-// src/components/HeaderMenu.jsx
 import React, { useState } from 'react';
 import styles from './headerMenu.module.scss';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import DarkModeModule from '../darkModeModule';
-import AccountMenu from './AccountMenu';
+import AccountMenu from './accountMenu';
 import { setNotifications } from '../../store/slices/notificationsSlice';
 
 import deliverIconDark from '../../assets/icons/dark/deliver.svg';

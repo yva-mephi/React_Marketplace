@@ -13,8 +13,7 @@ const SearchBar = () => {
     const [isFocused, setIsFocused] = useState(false);
 
     const handleSearch = () => {
-        // Логика для обработки поиска
-        console.log('Поиск выполнен');
+        console.log('Поиск выполнен'); // Необходимо реализовать grep
     };
 
     return (

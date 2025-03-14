@@ -1,4 +1,3 @@
-// src/routes.jsx
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './pages/main/mainPage';
 import ItemsPage from './pages/items/itemsPage';
@@ -26,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: '/auth',
         element: <AuthPage />,
+        loader: ({ request }) => {
+            const url = new URL(request.url);
+            return { mode: url.searchParams.get('mode') };
+        }
     },
 ]);
 

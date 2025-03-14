@@ -3,22 +3,22 @@
     align-items: center;
     width: 600px;
     height: 40px;
-    background: rgba(0, 0, 0, 0.5); // Темное матовое стекло для светлого режима
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.178);
     border-radius: 20px;
     padding: 5px 10px;
     transition: width 0.3s ease;
 
     input {
+
         border: none;
         background: transparent;
         outline: none;
         flex: 1;
-        color: white; // Цвет текста для светлого режима
+        color: white;
         font-size: 16px;
-        caret-color: white; // Цвет курсора для светлого режима
-        left: 40px; // Добавляем отступы внутри input
-        width: 100%; // Занимает всю доступную ширину
+        caret-color: white;
+        left: 40px;
+        width: 100%;
         height: 100%;
         font-family: 'IBMPlexSans-Regular', sans-serif;
         font-weight: 550;
@@ -26,6 +26,7 @@
         &::placeholder {
             color: rgba(255, 255, 255, 0.7);
         }
+
     }
 
     .searchButton {
@@ -33,37 +34,42 @@
         background: transparent;
         cursor: pointer;
         padding: 0;
-        transition: transform 0.2s ease; // Анимация для кнопки
+        transition: transform 0.2s ease;
 
         img {
             height: 25px;
             width: 25px;
-            transition: opacity 0.2s ease; // Анимация для иконки
+            transition: opacity 0.2s ease;
         }
 
         &:hover {
-            transform: scale(1.1); // Увеличиваем кнопку при наведении
+            transform: scale(1.1);
         }
 
         &:active {
-            transform: scale(0.9); // Уменьшаем кнопку при нажатии
+            transform: scale(0.9);
         }
     }
 
     &.focused {
-        width: 700px; // Расширяем при фокусе
+        border: 1px solid #313131;
+        width: 700px;
     }
 }
 
 [data-theme='dark'] .searchBar {
-    background: rgba(255, 255, 255, 0.7); // Светлое матовое стекло для темного режима
+    background: rgba(255, 255, 255, 0.199);
 
     input {
-        color: black; // Цвет текста для темного режима
-        caret-color: black; // Цвет курсора для темного режима
+        color: black;
+        caret-color: black;
 
         &::placeholder {
             color: rgba(0, 0, 0, 0.7);
         }
+    }
+
+    &.focused {
+        border: 1px solid #d4d4d4;
     }
 }

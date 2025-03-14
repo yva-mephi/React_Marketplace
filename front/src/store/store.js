@@ -1,4 +1,3 @@
-// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import themeReducer from './slices/themeSlice';
 import authReducer from './slices/authSlice';

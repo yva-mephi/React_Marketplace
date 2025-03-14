@@ -1,4 +1,3 @@
-// src/store/slices/notificationsSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {

@@ -1,13 +1,20 @@
-// src/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAppDispatch } from './store/hooks';
+import { login } from './store/slices/authSlice';
 import { Routes } from './routes';
-import { useAppSelector } from './store/hooks';
 
 function App() {
-  const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      dispatch(login({ token, rememberMe: true }));
+    }
+  }, [dispatch]);
 
   return (
-    <div className="App" data-theme={isDarkMode ? 'dark' : 'light'}>
+    <div className="App">
       <Routes />
     </div>
   );
