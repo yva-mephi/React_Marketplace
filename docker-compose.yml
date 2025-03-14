@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: backend_service
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: [ "npm", "start" ]
+    restart: always
+
+  frontend:
+    container_name: frontend_service
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: always
+    depends_on:
+      - backend

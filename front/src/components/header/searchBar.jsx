@@ -1,4 +1,3 @@
-// src/components/SearchBar.jsx
 import React, { useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import styles from './searchBar.module.scss';

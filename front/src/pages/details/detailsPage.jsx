@@ -1,4 +1,3 @@
-// src/pages/details/detailsPage.jsx
 import React from 'react';
 
 const DetailsPage = () => {

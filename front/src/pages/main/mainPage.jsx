@@ -1,31 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAppSelector } from '../../store/hooks';
 import Header from '../../components/header/header';
 import styles from './mainPage.module.scss';
+import MainControls from '../../components/mainControls';
+import ItemsList from '../../components/items/itemsList';
 
 const MainPage = () => {
     const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
+    const [sortType, setSortType] = useState('price_asc');
+    const [filterType, setFilterType] = useState('all');
+    const [showMyAds, setShowMyAds] = useState(false); // Состояние для отображения "Мои объявления"
+
+    const handleSortChange = (sortType) => {
+        setSortType(sortType);
+        console.log('Сортировка:', sortType);
+    };
+
+    const handleFilterChange = (filterType) => {
+        setFilterType(filterType);
+        setShowMyAds(false); // Сбрасываем фильтр "Мои объявления" при выборе другого фильтра
+        console.log('Фильтр:', filterType);
+    };
+
+    const handleMyAdsClick = () => {
+        setShowMyAds(!showMyAds); // Переключаем состояние "Мои объявления"
+        console.log('Мои объявления:', !showMyAds);
+    };
+
+    const handleCreateAd = () => {
+        console.log('Создание объявления');
+    };
 
     return (
         <div className={styles.container} data-theme={isDarkMode ? 'dark' : 'light'}>
-            <Header isDarkMode={isDarkMode} />
+            <header>
+                <Header isDarkMode={isDarkMode} />
+            </header>
             <main>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="/items">Перейти к списку товаров</a>
-                        </li>
-                        <li>
-                            <a href="/create">Создать товар</a>
-                        </li>
-                        <li>
-                            <a href="/auth">Авторизация</a>
-                        </li>
-                    </ul>
-                </nav>
+                <MainControls
+                    onSortChange={handleSortChange}
+                    onFilterChange={handleFilterChange}
+                    onMyAdsClick={handleMyAdsClick}
+                    onCreateAd={handleCreateAd}
+                />
+                <ItemsList sortType={sortType} filterType={filterType} showMyAds={showMyAds} />
             </main>
-            <h1>Главная страница</h1>
-            <p>Добро пожаловать на наш сайт!</p>
         </div>
     );
 };

@@ -3,7 +3,6 @@ import styles from './headerMenu.module.scss';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import DarkModeModule from '../darkModeModule';
 import AccountMenu from './accountMenu';
-import { setNotifications } from '../../store/slices/notificationsSlice';
 
 import deliverIconDark from '../../assets/icons/dark/deliver.svg';
 import basketIconDark from '../../assets/icons/dark/basket.svg';
@@ -17,13 +16,9 @@ import accountIconLight from '../../assets/icons/light/account.svg';
 
 const HeaderMenu = () => {
     const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
-    const hasUnreadNotifications = useAppSelector(
-        (state) => state.notifications.hasUnreadNotifications
-    );
     const dispatch = useAppDispatch();
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
 
-    // Выбираем иконки в зависимости от темы
     const deliverIcon = isDarkMode ? deliverIconLight : deliverIconDark;
     const basketIcon = isDarkMode ? basketIconLight : basketIconDark;
     const favoriteIcon = isDarkMode ? favoriteIconLight : favoriteIconDark;
@@ -37,15 +32,15 @@ const HeaderMenu = () => {
         <div className={styles.menu}>
             <div className={styles.iconWrapper}>
                 <img src={deliverIcon} alt="Доставка" title="Доставка" />
-                {hasUnreadNotifications && <span className={styles.notificationBadge} />}
+
             </div>
             <div className={styles.iconWrapper}>
                 <img src={basketIcon} alt="Корзина" title="Корзина" />
-                {hasUnreadNotifications && <span className={styles.notificationBadge} />}
+
             </div>
             <div className={styles.iconWrapper}>
                 <img src={favoriteIcon} alt="Избранное" title="Избранное" />
-                {hasUnreadNotifications && <span className={styles.notificationBadge} />}
+
             </div>
             <div className={styles.accountWrapper}>
                 <div className={styles.iconWrapper}>
@@ -55,7 +50,7 @@ const HeaderMenu = () => {
                         title="Аккаунт"
                         onClick={toggleAccountMenu}
                     />
-                    {hasUnreadNotifications && <span className={styles.notificationBadge} />}
+
                 </div>
                 {isAccountMenuOpen && <AccountMenu onClose={() => setIsAccountMenuOpen(false)} />}
             </div>

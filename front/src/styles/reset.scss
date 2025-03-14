@@ -1,5 +1,3 @@
-// src/styles/reset.scss
-/* Подключение шрифтов */
 @font-face {
     font-family: 'IBMPlexSans-Regular';
     src: url('../assets/fonts/IBMPlexSans-Regular.ttf') format('truetype');
@@ -21,7 +19,6 @@
     font-style: normal;
 }
 
-/* Сброс стилей */
 *,
 *::before,
 *::after {

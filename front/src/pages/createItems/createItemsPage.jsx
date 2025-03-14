@@ -1,4 +1,3 @@
-// src/pages/createItems/createItemsPage.jsx
 import React from 'react';
 
 const CreateItemsPage = () => {

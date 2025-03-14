@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
-import { logout } from '../../store/slices/authSlice';
+import { handleLogout } from '../../utils/exit';
 import styles from './accountMenu.module.scss';
 
 import newsIconDark from '../../assets/icons/dark/news.svg';
@@ -12,7 +12,6 @@ const AccountMenu = ({ onClose }) => {
     const navigate = useNavigate();
     const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
     const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
-    const hasUnreadNotifications = useAppSelector((state) => state.notifications.hasUnreadNotifications);
     const newsIcon = isDarkMode ? newsIconLight : newsIconDark;
 
     const handleAuthAction = (mode) => {
@@ -20,8 +19,8 @@ const AccountMenu = ({ onClose }) => {
         onClose();
     };
 
-    const handleLogout = () => {
-        dispatch(logout());
+    const handleLogoutClick = () => {
+        handleLogout(dispatch);
         onClose();
     };
 
@@ -41,10 +40,7 @@ const AccountMenu = ({ onClose }) => {
                     <img src={newsIcon} alt="Новости" className={styles.newsIcon} />
                     <button className={styles.menuItem}>Настройки</button>
                     <button className={styles.menuItem}>Обращения</button>
-                    <div className={styles.notificationWrapper}>
-                        {hasUnreadNotifications && <span className={styles.notificationBadge} />}
-                    </div>
-                    <button className={styles.menuItem} onClick={handleLogout}>
+                    <button className={styles.menuItem} onClick={handleLogoutClick}>
                         Выйти
                     </button>
                 </>

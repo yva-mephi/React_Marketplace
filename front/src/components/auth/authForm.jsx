@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../store/slices/authSlice';
+import { handleLogin, handleRegister } from '../../utils/authLogic';
 import AuthToggle from './authToggle';
 import LoginForm from './loginForm';
 import RegisterForm from './registerForm';
@@ -12,17 +12,21 @@ const AuthForm = ({ isDarkMode }) => {
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(true);
     const [rememberMe, setRememberMe] = useState(false);
+    const [error, setError] = useState('');
+
     const handleSubmit = (data) => {
-        dispatch(login({
-            token: 'fake-token',
-            rememberMe: data.rememberMe
-        }));
-        navigate('/');
+        setError('');
+        if (isLogin) {
+            handleLogin(data, dispatch, navigate, setError);
+        } else {
+            handleRegister(data, dispatch, navigate, setError);
+        }
     };
 
     return (
         <div className={`${styles.authContainer} ${isDarkMode ? styles.dark : ''}`}>
             <AuthToggle isLogin={isLogin} onToggle={() => setIsLogin(!isLogin)} />
+            {error && <div className={styles.errorMessage}>{error}</div>}
             {isLogin ? (
                 <LoginForm
                     onSubmit={handleSubmit}
