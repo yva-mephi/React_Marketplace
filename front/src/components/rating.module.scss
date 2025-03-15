@@ -1,0 +1,33 @@
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating:not(:checked)>input {
+    position: absolute;
+    appearance: none;
+}
+
+.rating:not(:checked)>label {
+    float: right;
+    cursor: pointer;
+    font-size: 30px;
+    fill: #666;
+}
+
+.rating:not(:checked)>label>svg {
+    fill: #666;
+    transition: fill 0.3s ease;
+}
+
+.rating>input:checked+label>svg,
+.rating>input:checked~label>svg {
+    fill: #ffa723;
+}
+
+.ratingValue {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-light-text);
+}

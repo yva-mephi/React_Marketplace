@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styles from './itemCard.module.scss';
 import { useAppSelector } from '../../store/hooks';
@@ -12,11 +10,10 @@ import heartIcon from '../../assets/icons/dark/favorite.svg';
 import deleteIconLight from '../../assets/icons/light/delete.svg';
 import editIconLight from '../../assets/icons/light/edit.svg';
 
-const ItemCard = ({ id, name, description, location, type, isOwner }) => {
+const ItemCard = ({ id, name, description, location, type, isOwner, photos }) => {
     const [hovered, setHovered] = useState(false);
     const theme = useAppSelector((state) => state.theme.isDarkMode);
     const navigate = useNavigate();
-    const isDarkMode = useAppSelector((state) => state.theme.isDarkMode);
 
     // Иконки для типов объявлений
     const typeIcons = {
@@ -30,6 +27,9 @@ const ItemCard = ({ id, name, description, location, type, isOwner }) => {
         navigate(`/details/${id}`);
     };
 
+    // Используем первое изображение из массива photos или заглушку
+    const imageUrl = photos?.[0] || typeIcons[type];
+
     return (
         <div className={`${styles.card} ${theme}`}>
             <div
@@ -39,8 +39,8 @@ const ItemCard = ({ id, name, description, location, type, isOwner }) => {
                 onClick={handleDetailsClick}
             >
                 <img
-                    src={typeIcons[type]}
-                    alt={type}
+                    src={imageUrl}
+                    alt={name}
                     className={`${styles.image} ${hovered ? styles.hovered : ''}`}
                 />
                 {hovered && (

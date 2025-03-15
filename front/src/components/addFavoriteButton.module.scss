@@ -1,0 +1,40 @@
+.bookmarkCheckbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.bookmarkCheckbox__input {
+    display: none;
+}
+
+.bookmarkCheckbox__icon {
+    width: 2.5em;
+    height: 2.5em;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s, fill 0.3s;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.bookmarkCheckbox__input:checked+.bookmarkCheckbox__label .bookmarkCheckbox__icon {
+    fill: #ff5a5f;
+    stroke: #ff5a5f;
+    animation: bookmark-pop 0.4s ease;
+}
+
+@keyframes bookmark-pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
