@@ -1,0 +1,65 @@
+// src/components/addFavoriteButton/addFavoriteButton.module.scss
+.bookmarkCheckbox {
+    display: inline-block;
+    position: relative;
+}
+
+.bookmarkCheckbox__input {
+    display: none;
+}
+
+.bookmarkCheckbox__label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.bookmarkCheckbox__icon {
+    width: 2.5em;
+    height: 2.5em;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s, fill 0.3s;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.bookmarkCheckbox__iconBack {
+    stroke: #333;
+    transition: transform 0.3s;
+}
+
+.bookmarkCheckbox__iconCheck {
+    stroke: #fff;
+    stroke-dasharray: 16;
+    stroke-dashoffset: 16;
+    transition: stroke-dashoffset 0.3s, transform 0.3s;
+    transform: translateX(2px);
+}
+
+.bookmarkCheckbox__input:checked+.bookmarkCheckbox__label .bookmarkCheckbox__iconBack {
+    stroke: #ff5a5f;
+    transform: scale(1.1);
+    animation: bookmark-pop 0.4s ease;
+    fill: url(#gradientFill);
+}
+
+.bookmarkCheckbox__input:checked+.bookmarkCheckbox__label .bookmarkCheckbox__iconCheck {
+    stroke-dashoffset: 0;
+    transition-delay: 0.2s;
+}
+
+@keyframes bookmark-pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}

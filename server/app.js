@@ -53,8 +53,8 @@ app.post('/items', (req, res) => {
     const { name, description, location, type, user_id, ...rest } = req.body;
 
     // Validate common required fields
-    if (!name || !description || !location || !type || !user_id) {
-        return res.status(400).json({ error: 'Missing required fields' });
+    if (!name || !description || !location || !type || user_id === null || user_id === undefined) {
+        return res.status(400).json({ error: `Missing required fields: ${name}, ${description}, ${location}, ${type}, ${user_id}` });
     }
 
     const user = users.find(u => u.id === user_id);

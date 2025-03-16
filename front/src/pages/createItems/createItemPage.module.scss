@@ -1,0 +1,106 @@
+@use '../../styles/variables.scss' as vars;
+
+.container {
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
+    color: var(--color-light-text);
+    transition: color 0.3s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(115deg, #fff720, #3cd500);
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    &[data-theme='dark'] {
+        color: var(--color-dark-text);
+
+        &::before {
+            opacity: 0;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(115deg, #135a2e, #83a002);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+}
+
+.createItemPage {
+    padding: 20px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submitButton {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}

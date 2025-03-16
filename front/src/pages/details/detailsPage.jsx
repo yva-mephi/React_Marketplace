@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { itemAPI } from '../../api/itemAPI';
 import Header from '../../components/header/header';
-import AddFavoriteButton from '../../components/addFavoriteButton';
-import Rating from '../../components/rating';
-import Reviews from '../../components/reviews';
+import AddFavoriteButton from '../../components/decription/addFavoriteButton';
+import Rating from '../../components/decription/rating';
+import Reviews from '../../components/decription/reviews';
 import styles from './detailsPage.module.scss';
 import { useAppSelector } from '../../store/hooks';
 

@@ -32,12 +32,17 @@ button {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    background-color: #007bff;
+    background: linear-gradient(115deg, #ff3c00, #f2ff00);
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: #0056b3;
+        transform: scale(1.1);
+        background: linear-gradient(115deg, #962300, #9ba301);
+    }
+
+    &.active {
+        transform: scale(0.9);
     }
 }

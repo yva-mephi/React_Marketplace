@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './pages/main/mainPage';
 import DetailsPage from './pages/details/detailsPage';
-import CreateItemsPage from './pages/createItems/createItemsPage';
+import CreateItemPage from './pages/createItems/createItemPage';
 import AuthPage from './pages/auth/authPage';
 
 const router = createBrowserRouter([
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/create',
-        element: <CreateItemsPage />,
+        element: <CreateItemPage />,
     },
     {
         path: '/auth',

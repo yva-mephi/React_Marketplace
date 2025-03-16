@@ -13,7 +13,7 @@ const ItemsList = ({ sortType, filterType, showMyAds }) => {
     useEffect(() => {
         const loadItems = async () => {
             try {
-                const data = await fetchItems(currentUser?.id || null);
+                const data = await fetchItems(currentUser.id);
                 setItems(data);
             } catch (err) {
                 setError('Ошибка при загрузке объявлений');
@@ -25,7 +25,6 @@ const ItemsList = ({ sortType, filterType, showMyAds }) => {
         loadItems();
     }, [currentUser]);
 
-    // Фильтрация товаров
     const filteredItems = items.filter((item) => {
         if (showMyAds) {
             return item.user_id === currentUser?.id;
@@ -34,7 +33,6 @@ const ItemsList = ({ sortType, filterType, showMyAds }) => {
         return item.type === filterType;
     });
 
-    // Сортировка товаров
     const sortedItems = filteredItems.sort((a, b) => {
         if (sortType === 'price_asc') return a.price - b.price;
         if (sortType === 'price_desc') return b.price - a.price;
@@ -60,7 +58,7 @@ const ItemsList = ({ sortType, filterType, showMyAds }) => {
                     location={item.location}
                     type={item.type}
                     isOwner={item.user_id === currentUser?.id}
-                    photos={item.photos} // Передаем массив photos
+                    photos={item.photos}
                 />
             ))}
         </div>
